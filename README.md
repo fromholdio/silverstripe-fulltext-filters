@@ -1,0 +1,1 @@
+# silverstripe-fulltext-filters
