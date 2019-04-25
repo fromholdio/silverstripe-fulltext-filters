@@ -1,7 +1,7 @@
 {
 	"name": "fromholdio/silverstripe-fulltext-filters",
 	"type": "silverstripe-vendormodule",
-	"description": "",
+	"description": "This module adds three fulltext SearchFilters to your SilverStripe project.",
 	"license": "BSD-3-Clause",
 	"keywords": ["silverstripe", "fulltext", "search", "search filters", "innodb", "mysql", "mariadb"],
 	"homepage": "https://github.com/fromholdio/silverstripe-fulltext-filters",
