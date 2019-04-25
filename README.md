@@ -52,7 +52,7 @@ private static $indexes = [
 public function getResults($value)
 {
     $objects = ObjectClass::get()
-        ->filter([
+        ->filterAny([
             'TitleFields:FulltextBooleanRelevance(5)' => $value,
             'ContentFields:FulltextBooleanRelevance' => $value
         ])
