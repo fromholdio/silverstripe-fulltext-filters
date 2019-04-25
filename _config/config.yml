@@ -1,0 +1,16 @@
+---
+Name: fromholdio-fulltextfilters
+After:
+  - 'coresearchfilters'
+  - 'coresearchaliases'
+---
+SilverStripe\Core\Injector\Injector:
+  DataListFilter.FulltextRelevance:
+    class: Fromholdio\FulltextFilters\ORM\Filters\FulltextRelevanceFilter
+  DataListFilter.FulltextBoolean:
+    class: Fromholdio\FulltextFilters\ORM\Filters\FulltextBooleanFilter
+  DataListFilter.FulltextBooleanRelevance:
+    class: Fromholdio\FulltextFilters\ORM\Filters\FulltextBooleanRelevanceFilter
+  FulltextRelevanceFilter: '%$DataListFilter.FulltextRelevance'
+  FulltextBooleanFilter: '%$DataListFilter.FulltextBoolean'
+  FulltextBooleanRelevanceFilter: '%$DataListFilter.FulltextBooleanRelevance'
