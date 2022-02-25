@@ -8,7 +8,7 @@ class FulltextBooleanRelevanceFilter extends FulltextBooleanFilter
 {
     protected $weight;
 
-    public function __construct(?string $fullName = null, $value = false, array $modifiers = array(), int $weight = 1)
+    public function __construct(?string $fullName = null, $value = false, array $modifiers = [], int $weight = 1)
     {
         parent::__construct($fullName, $value, $modifiers);
         $this->setWeight($weight);
@@ -16,13 +16,18 @@ class FulltextBooleanRelevanceFilter extends FulltextBooleanFilter
 
     protected function applyOne(DataQuery $query)
     {
-        $query = parent::applyOne($query);
-        $alias = $this->getRelevanceAlias();
-        $score = $this->getScoreName();
-        $select = sprintf("{$score} := MATCH (%s) AGAINST ('{$this->getValue()}' IN BOOLEAN MODE)", $this->getDbName());
-        $weight = $this->getWeight();
-        $select = $select . ' * ' . $weight;
-        $query->selectField($select, $alias);
+        $value = $this->getValue();
+        if (!empty($value))
+        {
+            $query = parent::applyOne($query);
+            // add select statement
+            $alias = $this->getRelevanceAlias();
+            $score = $this->getScoreName();
+            $select = sprintf("{$score} := MATCH (%s) AGAINST ({$value} IN BOOLEAN MODE)", $this->getDbName());
+            $weight = $this->getWeight();
+            $select .= ' * ' . $weight;
+            $query->selectField($select, $alias);
+        }
         return $query;
     }
 
