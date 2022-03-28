@@ -23,7 +23,7 @@ class FulltextBooleanRelevanceFilter extends FulltextBooleanFilter
             // add select statement
             $alias = $this->getRelevanceAlias();
             $score = $this->getScoreName();
-            $select = sprintf("{$score} := MATCH (%s) AGAINST ({$value} IN BOOLEAN MODE)", $this->getDbName());
+            $select = sprintf("{$score} := MATCH (%s) AGAINST ('{$value}' IN BOOLEAN MODE)", $this->getDbName());
             $weight = $this->getWeight();
             $select .= ' * ' . $weight;
             $query->selectField($select, $alias);
