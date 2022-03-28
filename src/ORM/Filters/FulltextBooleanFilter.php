@@ -2,12 +2,15 @@
 
 namespace Fromholdio\FulltextFilters\ORM\Filters;
 
+use SilverStripe\Core\Config\Configurable;
 use SilverStripe\Core\Convert;
 use SilverStripe\ORM\DataQuery;
 use SilverStripe\ORM\Filters\FulltextFilter;
 
 class FulltextBooleanFilter extends FulltextFilter
 {
+    use Configurable;
+    
     private static $add_stars_to_value = false;
 
     protected function applyOne(DataQuery $query)
