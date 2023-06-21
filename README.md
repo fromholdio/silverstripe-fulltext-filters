@@ -10,11 +10,11 @@ N.b. - Full-text relevance scores are binary (1 or 0) in Boolean Mode, unless th
 
 ## Requirements
 
-* [silverstripe-framework](https://github.com/silverstripe/silverstripe-framework) ^4
+* [silverstripe-framework](https://github.com/silverstripe/silverstripe-framework) ^4 & ^5
 
 ## Recommended
 
-* [fromholdio/silverstripe-fulltext-innodb](https://github.com/fromholdio/silverstripe-fulltext-innodb) ^1.0
+* [fromholdio/silverstripe-fulltext-innodb](https://github.com/fromholdio/silverstripe-fulltext-innodb) ^1.0 (for Silverstripe ^4)
 
 ## Installation
 
