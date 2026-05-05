@@ -86,8 +86,8 @@ class FulltextBooleanFilter extends FulltextFilter
                         break;
                     }
                 }
-            } else {
-                $word .= '*';
+            } else if (preg_match('/^\+?[\p{L}]+\**$/u', $word)) {
+                $word = rtrim($word, '*') . '*';
             }
             $newWords[] = $word;
         }
